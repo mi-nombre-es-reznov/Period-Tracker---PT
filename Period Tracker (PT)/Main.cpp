@@ -29,6 +29,7 @@ int main()
 	// Display message if user name is already in system and female is accessing
 	cout << endl << endl << greeting_starter[loc_gs] << female_obj.getFirstName() << greeting_ending[loc_ge] << endl << endl;
 
+	// To allow for user visability
 	system("pause");
 	return 0;
 }

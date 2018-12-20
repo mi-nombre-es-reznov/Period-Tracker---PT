@@ -5,6 +5,8 @@
 #include <time.h>	// For random number generator
 using namespace std;	// Used to declare namespace as standard
 
+void check_name();
+
 int main()
 {
 	string first_name;	// Get female first name
@@ -21,6 +23,7 @@ int main()
 	loc_ge = rand() % 6;
 	//cout << "test num: " << test_num << endl << endl;
 
+	check_name();
 	// Get user name if it's their first time using the software
 	cout << "Please enter your FIRST name ONLY: ";
 	cin >> first_name;
@@ -32,4 +35,31 @@ int main()
 	// To allow for user visability
 	system("pause");
 	return 0;
+}
+
+void check_name()
+{
+	ifstream file;
+	file.open("female_data.txt");
+
+	if (file.is_open())
+	{
+		cout << "File has successfully opened!" << endl;
+	}
+	else
+	{
+		cout << "File has failed to open! Creating file now." << endl;
+		ofstream new_user;
+		new_user.open("female_data.txt");
+
+		if (new_user.is_open())
+		{
+			cout << "Account being created!\nPlease answer all questions to the best of your knowledge." << endl << endl;
+			new_user << "user";
+ 		}
+		else
+		{
+			cout << "New account failed to be made. Please check for errors in your code!" << endl;
+		}
+	}
 }

@@ -20,9 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{69E2A5A6-3A15-4D62-9E12-547BED0720D8}</ProjectGuid>
-    <RootNamespace>PeriodProgram</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <ProjectGuid>{BCACA046-3230-4AD3-B236-9238D409072A}</ProjectGuid>
+    <RootNamespace>PeriodTrackerPT</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -116,7 +116,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Greetings_intro.cpp" />
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Greetings_intro.h" />

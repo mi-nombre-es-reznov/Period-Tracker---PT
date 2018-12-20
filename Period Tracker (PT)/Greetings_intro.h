@@ -12,6 +12,7 @@ private:
 	string last;
 public:
 	Greetings_intro();
+	void create_init_file();
 	void setFirstName(string);
 	void setLastName(string);
 	string getFirstName();

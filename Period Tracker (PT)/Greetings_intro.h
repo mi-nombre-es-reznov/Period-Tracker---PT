@@ -33,6 +33,7 @@ public:
 	void setBirthControl(string);
 	void setPeriodDay(string);
 	void setBirthday(string);
+	void show_months();
 	string getFirstName();
 	string getLastName();
 	string getWeight();
@@ -48,4 +49,16 @@ public:
 	// Destructor
 	~Greetings_intro();
 };
+
+// Structs
+struct Birthday
+{
+	int Day;
+	string Month;
+	int Year;
+};
+
+// Call functions
+Birthday get_Birthday();
+void Months();
 #endif

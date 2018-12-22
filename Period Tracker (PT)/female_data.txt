@@ -1,1 +1,1 @@
-user_first user_last weight height_feet height_inches ethnicity sexually_active birth_control typical_day_of_period Birthday
+Alina Duenas 85 4 10 Latina yes no 20 April_26_1996

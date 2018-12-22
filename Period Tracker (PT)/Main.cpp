@@ -4,13 +4,13 @@
 #include "Greetings_intro.h"	// For Greetings_intro class
 using namespace std;	// Used to declare namespace as standard
 
+// Global variables
+Greetings_intro female_obj;	// Object of class Greetings_intro
+
 // Call functions
 string check_name();
 void get_base_data();
 void getfirstName();
-
-// Global variables
-Greetings_intro female_obj;	// Object of class Greetings_intro
 
 int main()
 {
@@ -26,7 +26,6 @@ int main()
 
 	// Used to pull data from file and place in class's object variable (w/o, the system overrides the core data every call)
 	getfirstName();
-	cout << female_obj.getFirstName() << endl << endl;
 
 	// If the value of the first name is "user_first" or and empty string
 	if (female_obj.getFirstName() == "user_first" || female_obj.getFirstName() == "")
@@ -105,7 +104,6 @@ string check_name()
 	}
 	else
 	{
-		cout << "File has failed to open! Creating file now." << endl;
 		system("pause");
 		system("CLS");
 	}
@@ -116,7 +114,9 @@ string check_name()
 void get_base_data()
 {
 	string in_fn, in_ln, in_weight, in_hf, in_hi, in_eth, in_sex, in_bc, in_dop, in_birth;
+	Birthday birth;
 
+	// Get info about user to have in name database
 	cout << "What is your first name: ";
 	cin >> in_fn;
 	female_obj.setFirstName(in_fn);
@@ -144,8 +144,10 @@ void get_base_data()
 	cout << "\nWhat day does your period typically land on: ";
 	cin >> in_dop;
 	female_obj.setPeriodDay(in_dop);
-	cout << "\nWhat is your DOB: ";
-	cin >> in_birth;
+	// Create a struct in order to hold multiple return values. 
+	birth = get_Birthday();
+	// Combine values to make birthday
+	in_birth = birth.Month + "_" + to_string(birth.Day) + "_" + to_string(birth.Year);
 	female_obj.setBirthday(in_birth);
 }
 
@@ -173,7 +175,7 @@ void getfirstName()
 	}
 	else
 	{
-		cout << "File failed to open!" << endl;
+		//cout << "File failed to open!" << endl;
 	}
 
 	file.close();

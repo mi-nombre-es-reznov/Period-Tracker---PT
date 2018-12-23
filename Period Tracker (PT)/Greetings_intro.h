@@ -3,6 +3,9 @@
 #define GREETING_INTRO_H
 #include <iostream>
 #include <string>
+#include <fstream>
+#include <time.h>
+using namespace std;
 using namespace std;
 
 class Greetings_intro
@@ -49,16 +52,4 @@ public:
 	// Destructor
 	~Greetings_intro();
 };
-
-// Structs
-struct Birthday
-{
-	int Day;
-	string Month;
-	int Year;
-};
-
-// Call functions
-Birthday get_Birthday();
-void Months();
 #endif

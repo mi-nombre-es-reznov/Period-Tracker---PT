@@ -2,10 +2,15 @@
 #include <fstream>	// For reading/writing from/to external text files
 #include <string>	 // For string variables
 #include "Greetings_intro.h"	// For Greetings_intro class
+#include "Bounds.h"	// For Boundries class
+#include "call_and_structs.h"	// For call functions and structs class
 using namespace std;	// Used to declare namespace as standard
 
 // Global variables
 Greetings_intro female_obj;	// Object of class Greetings_intro
+Boundries bounds;	// Object of class bounds
+call_and_structs calls;	// Object of class call_and_structs
+Birthday birth;	// Object of Birthday struct
 
 // Call functions
 string check_name();
@@ -114,38 +119,40 @@ string check_name()
 void get_base_data()
 {
 	string in_fn, in_ln, in_weight, in_hf, in_hi, in_eth, in_sex, in_bc, in_dop, in_birth;
-	Birthday birth;
 
 	// Get info about user to have in name database
 	cout << "What is your first name: ";
-	cin >> in_fn;
+	getline(cin, in_fn);
+	in_fn = bounds.single_word(in_fn);
 	female_obj.setFirstName(in_fn);
 	cout << "\nWhat is your last name: ";
-	cin >> in_ln;
+	getline(cin, in_ln);
+	in_ln = bounds.single_word(in_ln);
 	female_obj.setLastName(in_ln);
 	cout << "\nHow much do you weigh in pounds (lbs): ";
-	cin >> in_weight;
+	cin.ignore();
+	in_weight = bounds.weight_checker();
 	female_obj.setWeight(in_weight);
-	cout << "\nWhat is your height (feet): ";
-	cin >> in_hf;
+	//cout << "\nWhat is your height (feet)";
+	in_hf = bounds.get_height_feet();
 	female_obj.setHeightFeet(in_hf);
-	cout << "\nWhat is your height (inches): ";
-	cin >> in_hi;
+	//cout << "\nWhat is your height (inches): ";
+	in_hi = bounds.get_height_inches();
 	female_obj.setHeightInches(in_hi);
 	cout << "\nWhat is your ethnicity: ";
-	cin >> in_eth;
+	in_eth = bounds.get_ethnicity();
 	female_obj.setEthnicity(in_eth);
-	cout << "\nAre you sexually active: ";
-	cin >> in_sex;
+	cout << "\nAre you sexually active?";
+	in_sex = bounds.get_yes_no();
 	female_obj.setSex(in_sex);
-	cout << "\nAre you on birth control: ";
-	cin >> in_bc;
+	cout << "\nAre you on birth control?";
+	in_bc = bounds.get_yes_no();
 	female_obj.setBirthControl(in_bc);
-	cout << "\nWhat day does your period typically land on: ";
-	cin >> in_dop;
+	cout << "\nWhat day does your period typically land on?";
+	in_dop = bounds.day_checker();
 	female_obj.setPeriodDay(in_dop);
 	// Create a struct in order to hold multiple return values. 
-	birth = get_Birthday();
+	birth = calls.get_Birthday();
 	// Combine values to make birthday
 	in_birth = birth.Month + "_" + to_string(birth.Day) + "_" + to_string(birth.Year);
 	female_obj.setBirthday(in_birth);

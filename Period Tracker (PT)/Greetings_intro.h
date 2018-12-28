@@ -5,7 +5,7 @@
 #include <string>
 #include <fstream>
 #include <time.h>
-using namespace std;
+#include "Bounds.h"
 using namespace std;
 
 class Greetings_intro

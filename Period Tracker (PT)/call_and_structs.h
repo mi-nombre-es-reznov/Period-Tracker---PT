@@ -3,6 +3,7 @@
 #define CALL_AND_STRUCTS_H
 #include <iostream>
 #include <string>
+#include "Bounds.h"
 using namespace std;
 
 // Structs
@@ -20,5 +21,6 @@ public:
 	// Call functions
 	Birthday get_Birthday();
 	void Months();
+	string get_question(char);
 };
 #endif

@@ -4,6 +4,7 @@
 #include "Greetings_intro.h"	// For Greetings_intro class
 #include "Bounds.h"	// For Boundries class
 #include "call_and_structs.h"	// For call functions and structs class
+#include "update_core_data.h" // For update entries in update_core_data class
 using namespace std;	// Used to declare namespace as standard
 
 // Global variables
@@ -11,6 +12,8 @@ Greetings_intro female_obj;	// Object of class Greetings_intro
 Boundries bounds;	// Object of class bounds
 call_and_structs calls;	// Object of class call_and_structs
 Birthday birth;	// Object of Birthday struct
+core_updates update;	// Object of update core data class
+void Main_Menu();
 
 // Call functions
 string check_name();
@@ -23,6 +26,8 @@ int main()
 	int loc_gs, loc_ge;	// Variables to hold randomized numbers for array search
 	string greeting_starter[7] = {"Greetings ", "Good day ", "Salutations ", "Hello ", "Welcome ", "Hi ", "Howdy "};	// Array for beginning of greetings message
 	string greeting_ending[7] = {", I hope all is well today.", ", I hope you are well today.", ", it is always a great day when you are around.", ", it is always a great day when you are around.", ", nice to have you back.", ", I'm glad you are here."}; // Array for ending of greetings message
+	string first;
+	string last;
 
 	// Used to get random numbers from generator and assign to variables
 	loc_gs = female_obj.random_number(6);
@@ -45,6 +50,9 @@ int main()
 
 	// Display message if user name is already in system and female is accessing
 	cout << greeting_starter[loc_gs] << female_obj.getFirstName() << greeting_ending[loc_ge] << endl << endl;
+
+	// Main Menu
+	Main_Menu();
 
 	// To allow for user visability
 	system("pause");
@@ -186,4 +194,83 @@ void getfirstName()
 	}
 
 	file.close();
+}
+
+void Main_Menu()
+{
+	char choice, update_choice;
+	string name, name_alt;
+
+	do
+	{
+		cout << "\n\t\t\t\t\t\t\tMain Menu" << endl << endl << endl;
+		cout << "\ta) Change user info" << endl;
+		cout << "\tb) Add new entry" << endl;
+		cout << "\tc) Update current day entry" << endl;
+		cout << "\td) Statistics" << endl;
+		cout << "\te) Exit Program" << endl << endl << endl;
+		cout << "\tPlease enter your choice: ";
+		cin >> choice;
+		cin.ignore();
+
+		choice = tolower(choice);
+	} while (choice != 'a' && choice != 'b' && choice != 'c' && choice != 'd' && choice != 'e');
+
+	switch (choice)
+	{
+		case 'a':
+		{
+			system("CLS");
+
+			cout << "\t\t\t\t\t\t  Change user info" << endl << endl << endl;
+			update.name_and_date(female_obj.getFirstName(), female_obj.getLastName());
+			update_choice = update.update_core_info_menu();
+			cout << "choice: " << choice << "update choice: " << update_choice << endl;
+			cin.ignore();
+			cout << "Please enter your new first name: ";
+			getline(cin, name);
+			name_alt = bounds.single_word(name);
+			cout << "name: " << name_alt << endl << endl;
+			update.update_core_info(update_choice, name_alt);
+			break;
+		}
+		case 'b':
+		{
+			system("CLS");
+			cout << "\t\t\t\t\t\t\tAdd new Entry" << endl << endl << endl;
+			update.name_and_date(female_obj.getFirstName(), female_obj.getLastName());
+			cout << "We are in b!!!" << endl << endl;
+			//add_entry();
+			break;
+		}
+		case 'c':
+		{
+			system("CLS");
+			cout << "\t\t\t\t\t\t\tUpdate Current Day Entry" << endl << endl << endl;
+			update.name_and_date(female_obj.getFirstName(), female_obj.getLastName());
+			//update_curr_entry();
+			break;
+		}
+		case 'd':
+		{
+			system("CLS");
+			cout << "\t\t\t\t\t\t\tData Statistics" << endl << endl << endl;
+			update.name_and_date(female_obj.getFirstName(), female_obj.getLastName());
+			//get_Stats();
+			break;
+		}
+		case 'e':
+		{
+			system("CLS");
+			cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\nThank you for using NCompEng Technologies. Please visit again soon!" << endl;
+			system("pause");
+			exit(0);
+			break;
+		}
+		default:
+		{
+			cout << "Something went wrong! Please check code." << endl << endl << endl;
+			break;
+		}
+	}
 }

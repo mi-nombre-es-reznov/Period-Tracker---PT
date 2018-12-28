@@ -233,3 +233,21 @@ string Boundries::single_word(string word)
 
 	return altered_word;
 }
+
+string Boundries::unbind_words(string words)
+{
+	// To replace major '_' with spaces
+	string altered_word = words;
+	int position = altered_word.find("_");
+
+	if (position != string::npos)
+	{
+		while (position != string::npos)
+		{
+			altered_word.replace(position, 1, " ");
+			position = altered_word.find("_", position + 1);
+		}
+	}
+
+	return altered_word;
+}

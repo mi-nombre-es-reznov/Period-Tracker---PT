@@ -1,4 +1,5 @@
 #include "call_and_structs.h"
+Boundries bounded;
 
 call_and_structs::call_and_structs()
 {
@@ -184,4 +185,32 @@ void call_and_structs::Months()
 
 	// Give space at the end
 	cout << endl << endl << endl << endl;
+}
+
+string call_and_structs::get_question(char choice)
+{
+	string name, rep_weight;
+
+	switch (choice)
+	{
+		case 'a':
+		{
+			cout << "Please enter your new first name: ";
+			getline(cin, name);
+			return name;
+			break;
+		}
+		case 'b':
+		{
+			cout << "Please enter your new last name: ";
+			getline(cin, name);
+			break;
+		}
+		case 'c':
+		{
+			cout << "Please enter your new weight: ";
+			rep_weight = bounded.weight_checker();
+			break;
+		}
+	}
 }

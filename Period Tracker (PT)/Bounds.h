@@ -18,5 +18,6 @@ public:
 	string weight_checker();
 	string get_ethnicity();
 	string single_word(string);
+	string unbind_words(string);
 };
 #endif

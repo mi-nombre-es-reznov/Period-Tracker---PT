@@ -197,6 +197,7 @@ string call_and_structs::get_question(char choice)
 		{
 			cout << "Please enter your new first name: ";
 			getline(cin, name);
+			name = bounded.single_word(name);
 			return name;
 			break;
 		}
@@ -204,6 +205,8 @@ string call_and_structs::get_question(char choice)
 		{
 			cout << "Please enter your new last name: ";
 			getline(cin, name);
+			name = bounded.single_word(name);
+			return name;
 			break;
 		}
 		case 'c':

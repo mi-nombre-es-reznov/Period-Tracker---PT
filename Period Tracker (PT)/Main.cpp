@@ -49,7 +49,8 @@ int main()
 	system("CLS");
 
 	// Display message if user name is already in system and female is accessing
-	cout << greeting_starter[loc_gs] << female_obj.getFirstName() << greeting_ending[loc_ge] << endl << endl;
+	first = bounds.unbind_words(female_obj.getFirstName());
+	cout << greeting_starter[loc_gs] << first << greeting_ending[loc_ge] << endl << endl;
 
 	// Main Menu
 	Main_Menu();
@@ -199,7 +200,7 @@ void getfirstName()
 void Main_Menu()
 {
 	char choice, update_choice;
-	string name, name_alt;
+	string first, last, name, name_alt;
 
 	do
 	{
@@ -223,14 +224,18 @@ void Main_Menu()
 			system("CLS");
 
 			cout << "\t\t\t\t\t\t  Change user info" << endl << endl << endl;
-			update.name_and_date(female_obj.getFirstName(), female_obj.getLastName());
+			first = bounds.unbind_words(female_obj.getFirstName());
+			last = bounds.unbind_words(female_obj.getLastName());
+			//cout << "First name: " << first << " " << "Last name: " << last << endl;
+			update.name_and_date(first, last);
 			update_choice = update.update_core_info_menu();
-			cout << "choice: " << choice << "update choice: " << update_choice << endl;
+			//cout << "choice: " << choice << "update choice: " << update_choice << endl;
 			cin.ignore();
-			cout << "Please enter your new first name: ";
-			getline(cin, name);
+			name = calls.get_question(update_choice);
+			//cout << "Please enter your new first name: ";
+			//getline(cin, name);
 			name_alt = bounds.single_word(name);
-			cout << "name: " << name_alt << endl << endl;
+			//cout << "name: " << name_alt << endl << endl;
 			update.update_core_info(update_choice, name_alt);
 			break;
 		}

@@ -127,18 +127,14 @@ string Boundries::get_height_inches()
 	return s_inches;
 }
 
-string Boundries::weight_checker()
+string Boundries::weight_checker(int weight)
 {
-	int weight;
 	string s_weight;
 	bool numFail;
 
 	// Loop to run through if user were to give invalid choice for day born on.
 	do
 	{
-		cout << "\nHow many feet are you tall? (don't include inches): ";
-		cin >> weight;
-
 		numFail = cin.fail();
 		cin.clear();
 		cin.ignore(numeric_limits<streamsize>::max(), '\n');

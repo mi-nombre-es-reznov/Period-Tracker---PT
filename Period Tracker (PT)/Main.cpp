@@ -128,6 +128,7 @@ string check_name()
 void get_base_data()
 {
 	string in_fn, in_ln, in_weight, in_hf, in_hi, in_eth, in_sex, in_bc, in_dop, in_birth;
+	int pre_weight;
 
 	// Get info about user to have in name database
 	cout << "What is your first name: ";
@@ -138,9 +139,11 @@ void get_base_data()
 	getline(cin, in_ln);
 	in_ln = bounds.single_word(in_ln);
 	female_obj.setLastName(in_ln);
-	cout << "\nHow much do you weigh in pounds (lbs): ";
+	//cout << "\nHow much do you weigh in pounds (lbs): ";
 	cin.ignore();
-	in_weight = bounds.weight_checker();
+	cout << "\nHow much do you weigh? ";
+	cin >> pre_weight;
+	in_weight = bounds.weight_checker(pre_weight);
 	female_obj.setWeight(in_weight);
 	//cout << "\nWhat is your height (feet)";
 	in_hf = bounds.get_height_feet();
@@ -226,16 +229,11 @@ void Main_Menu()
 			cout << "\t\t\t\t\t\t  Change user info" << endl << endl << endl;
 			first = bounds.unbind_words(female_obj.getFirstName());
 			last = bounds.unbind_words(female_obj.getLastName());
-			//cout << "First name: " << first << " " << "Last name: " << last << endl;
 			update.name_and_date(first, last);
 			update_choice = update.update_core_info_menu();
-			//cout << "choice: " << choice << "update choice: " << update_choice << endl;
 			cin.ignore();
 			name = calls.get_question(update_choice);
-			//cout << "Please enter your new first name: ";
-			//getline(cin, name);
 			name_alt = bounds.single_word(name);
-			//cout << "name: " << name_alt << endl << endl;
 			update.update_core_info(update_choice, name_alt);
 			break;
 		}
@@ -243,8 +241,14 @@ void Main_Menu()
 		{
 			system("CLS");
 			cout << "\t\t\t\t\t\t\tAdd new Entry" << endl << endl << endl;
-			update.name_and_date(female_obj.getFirstName(), female_obj.getLastName());
-			cout << "We are in b!!!" << endl << endl;
+			first = bounds.unbind_words(female_obj.getFirstName());
+			last = bounds.unbind_words(female_obj.getLastName());
+			update.name_and_date(first, last);
+			update_choice = update.update_core_info_menu();
+			cin.ignore();
+			//name = calls.get_question(update_choice);
+			//name_alt = bounds.single_word(name);
+			//update.update_core_info(update_choice, name_alt);
 			//add_entry();
 			break;
 		}

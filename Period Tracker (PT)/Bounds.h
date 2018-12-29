@@ -15,7 +15,7 @@ public:
 	string get_yes_no();
 	string get_height_feet();
 	string get_height_inches();
-	string weight_checker();
+	string weight_checker(int);
 	string get_ethnicity();
 	string single_word(string);
 	string unbind_words(string);

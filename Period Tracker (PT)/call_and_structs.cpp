@@ -190,6 +190,7 @@ void call_and_structs::Months()
 string call_and_structs::get_question(char choice)
 {
 	string name, rep_weight;
+	int int_weight;
 
 	switch (choice)
 	{
@@ -212,7 +213,9 @@ string call_and_structs::get_question(char choice)
 		case 'c':
 		{
 			cout << "Please enter your new weight: ";
-			rep_weight = bounded.weight_checker();
+			cin >> int_weight;
+			rep_weight = bounded.weight_checker(int_weight);
+			return rep_weight;
 			break;
 		}
 	}

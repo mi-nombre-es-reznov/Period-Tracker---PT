@@ -27,7 +27,8 @@ void Greetings_intro::create_init_file()
 		init << "sexually_active ";
 		init << "birth_control ";
 		init << "typical_day_of_period ";
-		init << "Birthday";
+		init << "Birthday ";
+		init << "null";
 	}
 	else
 	{
@@ -95,6 +96,11 @@ void Greetings_intro::setBirthday(string birth)
 	birthday = birth;
 }
 
+void Greetings_intro::setPassword(string pass)
+{
+	password = pass;
+}
+
 void Greetings_intro::show_months()
 {
 	cout << "\t\t\t\t\tMonths" << endl << endl;
@@ -160,6 +166,11 @@ string Greetings_intro::getPeriodDay()
 string Greetings_intro::getBirthday()
 {
 	return birthday;
+}
+
+string Greetings_intro::getPassword()
+{
+	return password;
 }
 
 int Greetings_intro::random_number(int mod)

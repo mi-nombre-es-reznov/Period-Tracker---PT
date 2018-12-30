@@ -19,7 +19,7 @@ Birthday call_and_structs::get_Birthday()
 	// Loop to rerun through if user gives invalid choice for year born in.
 	do
 	{
-		cout << "\nWhat year were you born: ";
+		cout << "What year were you born: ";
 		cin >> year;
 
 		numFail = cin.fail();
@@ -70,84 +70,84 @@ Birthday call_and_structs::get_Birthday()
 	{
 		case 1:
 		{
-			cout << "\n\nChoice accepted. You picked January." << endl;
+			//cout << "\n\nChoice accepted. You picked January." << endl;
 			month = "January";
 			return Birthday{ day, month, year };
 			break;
 		}
 		case 2:
 		{
-			cout << "\n\nChoice accepted. You picked February." << endl;
+			//cout << "\n\nChoice accepted. You picked February." << endl;
 			month = "February";
 			return Birthday{ day, month, year };
 			break;
 		}
 		case 3:
 		{
-			cout << "\n\nChoice accepted. You picked March." << endl;
+			//cout << "\n\nChoice accepted. You picked March." << endl;
 			month = "March";
 			return Birthday{ day, month, year };
 			break;
 		}
 		case 4:
 		{
-			cout << "\n\nChoice accepted. You picked April." << endl;
+			//cout << "\n\nChoice accepted. You picked April." << endl;
 			month = "April";
 			return Birthday{ day, month, year };
 			break;
 		}
 		case 5:
 		{
-			cout << "\n\nChoice accepted. You picked May." << endl;
+			//cout << "\n\nChoice accepted. You picked May." << endl;
 			month = "May";
 			return Birthday{ day, month, year };
 			break;
 		}
 		case 6:
 		{
-			cout << "\n\nChoice accepted. You picked June." << endl;
+			//cout << "\n\nChoice accepted. You picked June." << endl;
 			month = "June";
 			return Birthday{ day, month, year };
 			break;
 		}
 		case 7:
 		{
-			cout << "\n\nChoice accepted. You picked July." << endl;
+			//cout << "\n\nChoice accepted. You picked July." << endl;
 			month = "July";
 			return Birthday{ day, month, year };
 			break;
 		}
 		case 8:
 		{
-			cout << "\n\nChoice accepted. You picked August." << endl;
+			//cout << "\n\nChoice accepted. You picked August." << endl;
 			month = "August";
 			return Birthday{ day, month, year };
 			break;
 		}
 		case 9:
 		{
-			cout << "\n\nChoice accepted. You picked Septmeber." << endl;
+			//cout << "\n\nChoice accepted. You picked Septmeber." << endl;
 			month = "September";
 			return Birthday{ day, month, year };
 			break;
 		}
 		case 10:
 		{
-			cout << "\n\nChoice accepted. You picked October." << endl;
+			//cout << "\n\nChoice accepted. You picked October." << endl;
 			month = "October";
 			return Birthday{ day, month, year };
 			break;
 		}
 		case 11:
 		{
-			cout << "\n\nChoice accepted. You picked November." << endl;
+			//cout << "\n\nChoice accepted. You picked November." << endl;
 			month = "November";
 			return Birthday{ day, month, year };
 			break;
 		}
 		case 12:
 		{
-			cout << "\n\nChoice accepted. You picked December." << endl;
+			//cout << "\n\nChoice accepted. You picked December." << endl;
 			month = "December";
 			return Birthday{ day, month, year };
 			break;
@@ -274,4 +274,26 @@ string call_and_structs::get_question(char choice)
 			break;
 		}
 	}
+}
+
+int call_and_structs::getPassword(string pass)
+{
+	string password;
+	int match;
+
+	cout << "Please enter your password to continue: ";
+	getline(cin, password);
+
+	if (password == pass)
+	{
+		match = 1;
+	}
+	else
+	{
+		system("CLS");
+		cout << "Password is incorrect!" << endl;
+		match = 0;
+	}
+
+	return match;
 }

@@ -26,8 +26,9 @@ int main()
 	int loc_gs, loc_ge;	// Variables to hold randomized numbers for array search
 	string greeting_starter[7] = {"Greetings ", "Good day ", "Salutations ", "Hello ", "Welcome ", "Hi ", "Howdy "};	// Array for beginning of greetings message
 	string greeting_ending[7] = {", I hope all is well today.", ", I hope you are well today.", ", it is always a great day when you are around.", ", it is always a great day when you are around.", ", nice to have you back.", ", I'm glad you are here."}; // Array for ending of greetings message
-	string first;
-	string last;
+	string first, last;
+	string s_password;
+	int password;
 
 	// Used to get random numbers from generator and assign to variables
 	loc_gs = female_obj.random_number(6);
@@ -46,9 +47,19 @@ int main()
 		female_obj.setFirstName(first_name);		// Assign name to class to parse - setName
 	}
 
+	// Reset the screen to be filled with new data
 	system("CLS");
 
+	// Check for password before entering menu
+	do
+	{
+		s_password = female_obj.getPassword();
+		s_password = bounds.unbind_words(s_password);
+		password = calls.getPassword(s_password);
+	} while (password != 1);
+
 	// Display message if user name is already in system and female is accessing
+	system("CLS");
 	first = bounds.unbind_words(female_obj.getFirstName());
 	cout << greeting_starter[loc_gs] << first << greeting_ending[loc_ge] << endl << endl;
 
@@ -62,7 +73,7 @@ int main()
 
 string check_name()
 {
-	string first_name, last_name, weight, hfeet, hinches, ethnicity, sex, bc_pills, day_of_period, birthday;
+	string first_name, last_name, weight, hfeet, hinches, ethnicity, sex, bc_pills, day_of_period, birthday, password;
 	ifstream file;
 	ofstream copy;
 	file.open("female_data.txt");
@@ -70,11 +81,11 @@ string check_name()
 
 	if (file.is_open())
 	{
-		while (file >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday)
+		while (file >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday >> password)
 		{
 			if (first_name == "user_first" && last_name == "user_last" && weight == "weight" && hfeet == "height_feet" && hinches == "height_inches"
 				&& ethnicity == "ethnicity" && sex == "sexually_active" && bc_pills == "birth_control" && day_of_period == "typical_day_of_period"
-				&& birthday == "Birthday")
+				&& birthday == "Birthday" && password == "null")
 			{
 				get_base_data();
 			}
@@ -85,7 +96,7 @@ string check_name()
 		}
 
 		copy << female_obj.getFirstName() << " " << female_obj.getLastName() << " " << female_obj.getWeight() << " " << female_obj.getHeightFeet() << " " << female_obj.getHeightInches() << " " << female_obj.getEthnicity() << " " << female_obj.getSex() <<
-			" " << female_obj.getBirthControl() << " " << female_obj.getPeriodDay() << " " << female_obj.getBirthday();
+			" " << female_obj.getBirthControl() << " " << female_obj.getPeriodDay() << " " << female_obj.getBirthday() << " " << female_obj.getPassword();
 
 		file.close();
 		copy.close();
@@ -97,14 +108,14 @@ string check_name()
 
 		if (file2.is_open() && copy2.is_open())
 		{
-			while (copy2 >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday)
+			while (copy2 >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday >> password)
 			{
 				if (first_name != "user_first" && last_name != "user_last" && weight != "weight" && hfeet != "height_feet" && hinches != "height_inches"
 					&& ethnicity != "ethnicity" && sex != "sexually_active" && bc_pills != "birth_control" && day_of_period != "typical_day_of_period"
-					&& birthday != "Birthday")
+					&& birthday != "Birthday" && password != "null")
 				{
 					file2 << first_name << " " << last_name << " " << weight << " " << hfeet << " " << hinches << " " << ethnicity <<
-						" " << sex << " " << bc_pills << " " << day_of_period << " " << birthday;
+						" " << sex << " " << bc_pills << " " << day_of_period << " " << birthday << " " << password;
 				}
 				else
 				{
@@ -127,7 +138,7 @@ string check_name()
 
 void get_base_data()
 {
-	string in_fn, in_ln, in_weight, in_hf, in_hi, in_eth, in_sex, in_bc, in_dop, in_birth;
+	string in_fn, in_ln, in_weight, in_hf, in_hi, in_eth, in_sex, in_bc, in_dop, in_birth, password;
 	int pre_weight, pre_hf, pre_hi;
 
 	// Get info about user to have in name database
@@ -140,12 +151,12 @@ void get_base_data()
 	in_ln = bounds.single_word(in_ln);
 	female_obj.setLastName(in_ln);
 	//cout << "\nHow much do you weigh in pounds (lbs): ";
-	cin.ignore();
+	//cin.ignore();
 	cout << "\nHow much do you weigh? ";
 	in_weight = bounds.weight_checker();
 	female_obj.setWeight(in_weight);
 	//cout << "\nWhat is your height (feet)";
-	cin.ignore();
+	//cin.ignore();
 	cout << "\nHow many feet are you tall? (don't include inches): ";
 	in_hf = bounds.get_height_feet();
 	female_obj.setHeightFeet(in_hf);
@@ -156,31 +167,39 @@ void get_base_data()
 	cout << "\nWhat is your ethnicity: ";
 	in_eth = bounds.get_ethnicity();
 	female_obj.setEthnicity(in_eth);
-	cout << "\nAre you sexually active?";
+	system("CLS");
+	cout << "Are you sexually active? ";
 	in_sex = bounds.get_yes_no();
 	female_obj.setSex(in_sex);
-	cout << "\nAre you on birth control?";
+	cout << "\nAre you on birth control? ";
 	in_bc = bounds.get_yes_no();
 	female_obj.setBirthControl(in_bc);
-	cout << "\nWhat day does your period typically land on?";
+	cout << "\nWhat day does your period typically land on? ";
 	in_dop = bounds.day_checker();
 	female_obj.setPeriodDay(in_dop);
+	system("CLS");
 	// Create a struct in order to hold multiple return values. 
 	birth = calls.get_Birthday();
 	// Combine values to make birthday
 	in_birth = birth.Month + "_" + to_string(birth.Day) + "_" + to_string(birth.Year);
 	female_obj.setBirthday(in_birth);
+	system("CLS");
+	cout << "Please create a password: ";
+	getline(cin, password);
+	password = bounds.single_word(password);
+	cout << "Password: " << password;
+	female_obj.setPassword(password);
 }
 
 void getfirstName()
 {
-	string first_name, last_name, weight, hfeet, hinches, ethnicity, sex, bc_pills, day_of_period, birthday;
+	string first_name, last_name, weight, hfeet, hinches, ethnicity, sex, bc_pills, day_of_period, birthday, password;
 	ifstream file;
 	file.open("female_data.txt");
 
 	if (file.is_open())
 	{
-		while (file >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday)
+		while (file >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday >> password)
 		{
 			female_obj.setFirstName(first_name);
 			female_obj.setLastName(last_name);
@@ -192,6 +211,7 @@ void getfirstName()
 			female_obj.setBirthControl(bc_pills);
 			female_obj.setPeriodDay(day_of_period);
 			female_obj.setBirthday(birthday);
+			female_obj.setPassword(password);
 		}
 	}
 	else

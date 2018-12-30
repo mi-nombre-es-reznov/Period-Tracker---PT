@@ -149,11 +149,11 @@ void core_updates::update_core_info(char choice, string update)
 			first.open("female_data.txt");
 			copy.open("copy_data.txt");
 
-			string first_name, last_name, weight, hfeet, hinches, ethnicity, sex, bc_pills, day_of_period, birthday;
+			string first_name, last_name, weight, hfeet, hinches, ethnicity, sex, bc_pills, day_of_period, birthday, password;
 
 			if (first.is_open())
 			{
-				while (first >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday)
+				while (first >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday >> password)
 				{
 					cout << "We have entered the update successfully!!!" << endl;
 					cout << "We have, on file, your current first name as: " << first_name << endl;
@@ -166,7 +166,7 @@ void core_updates::update_core_info(char choice, string update)
 				{
 					if (copy.is_open())
 					{
-						copy << update << " " << last_name << " " << weight << " " << hfeet << " " << hinches << " " << ethnicity << " " << sex << " " << bc_pills << " " << day_of_period << " " << birthday;
+						copy << update << " " << last_name << " " << weight << " " << hfeet << " " << hinches << " " << ethnicity << " " << sex << " " << bc_pills << " " << day_of_period << " " << birthday << " " << password;
 					}
 
 					cout << "Your information has been updated." << endl;
@@ -189,9 +189,9 @@ void core_updates::update_core_info(char choice, string update)
 
 				if (copy2.is_open())
 				{
-					while (copy2 >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday)
+					while (copy2 >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday >> password)
 					{
-						first2 << first_name << " " << last_name << " " << weight << " " << hfeet << " " << hinches << " " << ethnicity << " " << sex << " " << bc_pills << " " << day_of_period << " " << birthday;
+						first2 << first_name << " " << last_name << " " << weight << " " << hfeet << " " << hinches << " " << ethnicity << " " << sex << " " << bc_pills << " " << day_of_period << " " << birthday << " " << password;
 					}
 				}
 
@@ -208,11 +208,11 @@ void core_updates::update_core_info(char choice, string update)
 			first.open("female_data.txt");
 			copy.open("copy_data.txt");
 
-			string first_name, last_name, weight, hfeet, hinches, ethnicity, sex, bc_pills, day_of_period, birthday;
+			string first_name, last_name, weight, hfeet, hinches, ethnicity, sex, bc_pills, day_of_period, birthday, password;
 
 			if (first.is_open())
 			{
-				while (first >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday)
+				while (first >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday >> password)
 				{
 					cout << "We have entered the update successfully!!!" << endl;
 					cout << "We have, on file, your current last name as: " << last_name << endl;
@@ -225,7 +225,7 @@ void core_updates::update_core_info(char choice, string update)
 				{
 					if (copy.is_open())
 					{
-						copy << first_name << " " << update << " " << weight << " " << hfeet << " " << hinches << " " << ethnicity << " " << sex << " " << bc_pills << " " << day_of_period << " " << birthday;
+						copy << first_name << " " << update << " " << weight << " " << hfeet << " " << hinches << " " << ethnicity << " " << sex << " " << bc_pills << " " << day_of_period << " " << birthday << " " << password;
 					}
 
 					cout << "Your information has been updated." << endl;
@@ -248,9 +248,9 @@ void core_updates::update_core_info(char choice, string update)
 
 				if (copy2.is_open())
 				{
-					while (copy2 >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday)
+					while (copy2 >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday >> password)
 					{
-						first2 << first_name << " " << last_name << " " << weight << " " << hfeet << " " << hinches << " " << ethnicity << " " << sex << " " << bc_pills << " " << day_of_period << " " << birthday;
+						first2 << first_name << " " << last_name << " " << weight << " " << hfeet << " " << hinches << " " << ethnicity << " " << sex << " " << bc_pills << " " << day_of_period << " " << birthday << " " << password;
 					}
 				}
 
@@ -267,11 +267,11 @@ void core_updates::update_core_info(char choice, string update)
 			first.open("female_data.txt");
 			copy.open("copy_data.txt");
 
-			string first_name, last_name, weight, hfeet, hinches, ethnicity, sex, bc_pills, day_of_period, birthday;
+			string first_name, last_name, weight, hfeet, hinches, ethnicity, sex, bc_pills, day_of_period, birthday, password;
 
 			if (first.is_open()) 
 			{
-				while (first >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday)
+				while (first >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday >> password)
 				{
 					cout << "We have entered the update successfully!!!" << endl;
 					cout << "We have, on file, your current weight as: " << weight << endl;
@@ -284,7 +284,7 @@ void core_updates::update_core_info(char choice, string update)
 				{
 					if (copy.is_open())
 					{
-						copy << first_name << " " << last_name << " " << update << " " << hfeet << " " << hinches << " " << ethnicity << " " << sex << " " << bc_pills << " " << day_of_period << " " << birthday;
+						copy << first_name << " " << last_name << " " << update << " " << hfeet << " " << hinches << " " << ethnicity << " " << sex << " " << bc_pills << " " << day_of_period << " " << birthday << " " << password;
 					}
 
 					cout << "Your information has been updated." << endl;
@@ -307,9 +307,9 @@ void core_updates::update_core_info(char choice, string update)
 
 				if (copy2.is_open())
 				{
-					while (copy2 >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday)
+					while (copy2 >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday >> password)
 					{
-						first2 << first_name << " " << last_name << " " << weight << " " << hfeet << " " << hinches << " " << ethnicity << " " << sex << " " << bc_pills << " " << day_of_period << " " << birthday;
+						first2 << first_name << " " << last_name << " " << weight << " " << hfeet << " " << hinches << " " << ethnicity << " " << sex << " " << bc_pills << " " << day_of_period << " " << birthday << " " << password;
 					}
 				}
 
@@ -326,11 +326,11 @@ void core_updates::update_core_info(char choice, string update)
 			first.open("female_data.txt");
 			copy.open("copy_data.txt");
 
-			string first_name, last_name, weight, hfeet, hinches, ethnicity, sex, bc_pills, day_of_period, birthday;
+			string first_name, last_name, weight, hfeet, hinches, ethnicity, sex, bc_pills, day_of_period, birthday, password;
 
 			if (first.is_open())
 			{
-				while (first >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday)
+				while (first >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday >> password)
 				{
 					cout << "We have entered the update successfully!!!" << endl;
 					cout << "We have, on file, your current height (feet only) as: " << hfeet << endl;
@@ -343,7 +343,7 @@ void core_updates::update_core_info(char choice, string update)
 				{
 					if (copy.is_open())
 					{
-						copy << first_name << " " << last_name << " " << weight << " " << update << " " << hinches << " " << ethnicity << " " << sex << " " << bc_pills << " " << day_of_period << " " << birthday;
+						copy << first_name << " " << last_name << " " << weight << " " << update << " " << hinches << " " << ethnicity << " " << sex << " " << bc_pills << " " << day_of_period << " " << birthday << " " << password;
 					}
 
 					cout << "Your information has been updated." << endl;
@@ -366,9 +366,9 @@ void core_updates::update_core_info(char choice, string update)
 
 				if (copy2.is_open())
 				{
-					while (copy2 >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday)
+					while (copy2 >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday >> password)
 					{
-						first2 << first_name << " " << last_name << " " << weight << " " << hfeet << " " << hinches << " " << ethnicity << " " << sex << " " << bc_pills << " " << day_of_period << " " << birthday;
+						first2 << first_name << " " << last_name << " " << weight << " " << hfeet << " " << hinches << " " << ethnicity << " " << sex << " " << bc_pills << " " << day_of_period << " " << birthday << " " << password;
 					}
 				}
 
@@ -385,11 +385,11 @@ void core_updates::update_core_info(char choice, string update)
 			first.open("female_data.txt");
 			copy.open("copy_data.txt");
 
-			string first_name, last_name, weight, hfeet, hinches, ethnicity, sex, bc_pills, day_of_period, birthday;
+			string first_name, last_name, weight, hfeet, hinches, ethnicity, sex, bc_pills, day_of_period, birthday, password;
 
 			if (first.is_open())
 			{
-				while (first >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday)
+				while (first >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday >> password)
 				{
 					cout << "We have entered the update successfully!!!" << endl;
 					cout << "We have, on file, your current height (inches only) as: " << hinches << endl;
@@ -402,7 +402,7 @@ void core_updates::update_core_info(char choice, string update)
 				{
 					if (copy.is_open())
 					{
-						copy << first_name << " " << last_name << " " << weight << " " << hfeet << " " << update << " " << ethnicity << " " << sex << " " << bc_pills << " " << day_of_period << " " << birthday;
+						copy << first_name << " " << last_name << " " << weight << " " << hfeet << " " << update << " " << ethnicity << " " << sex << " " << bc_pills << " " << day_of_period << " " << birthday << " " << password;
 					}
 
 					cout << "Your information has been updated." << endl;
@@ -425,9 +425,9 @@ void core_updates::update_core_info(char choice, string update)
 
 				if (copy2.is_open())
 				{
-					while (copy2 >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday)
+					while (copy2 >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday >> password)
 					{
-						first2 << first_name << " " << last_name << " " << weight << " " << hfeet << " " << hinches << " " << ethnicity << " " << sex << " " << bc_pills << " " << day_of_period << " " << birthday;
+						first2 << first_name << " " << last_name << " " << weight << " " << hfeet << " " << hinches << " " << ethnicity << " " << sex << " " << bc_pills << " " << day_of_period << " " << birthday << " " << password;
 					}
 				}
 
@@ -444,11 +444,11 @@ void core_updates::update_core_info(char choice, string update)
 			first.open("female_data.txt");
 			copy.open("copy_data.txt");
 
-			string first_name, last_name, weight, hfeet, hinches, ethnicity, sex, bc_pills, day_of_period, birthday;
+			string first_name, last_name, weight, hfeet, hinches, ethnicity, sex, bc_pills, day_of_period, birthday, password;
 
 			if (first.is_open())
 			{
-				while (first >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday)
+				while (first >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday >> password)
 				{
 					cout << "We have entered the update successfully!!!" << endl;
 					cout << "We have, on file, your current ethnicity as: " << ethnicity << endl;
@@ -461,7 +461,7 @@ void core_updates::update_core_info(char choice, string update)
 				{
 					if (copy.is_open())
 					{
-						copy << first_name << " " << last_name << " " << weight << " " << hfeet << " " << hinches << " " << update << " " << sex << " " << bc_pills << " " << day_of_period << " " << birthday;
+						copy << first_name << " " << last_name << " " << weight << " " << hfeet << " " << hinches << " " << update << " " << sex << " " << bc_pills << " " << day_of_period << " " << birthday << " " << password;
 					}
 
 					cout << "Your information has been updated." << endl;
@@ -484,9 +484,9 @@ void core_updates::update_core_info(char choice, string update)
 
 				if (copy2.is_open())
 				{
-					while (copy2 >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday)
+					while (copy2 >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday >> password)
 					{
-						first2 << first_name << " " << last_name << " " << weight << " " << hfeet << " " << hinches << " " << ethnicity << " " << sex << " " << bc_pills << " " << day_of_period << " " << birthday;
+						first2 << first_name << " " << last_name << " " << weight << " " << hfeet << " " << hinches << " " << ethnicity << " " << sex << " " << bc_pills << " " << day_of_period << " " << birthday << " " << password;
 					}
 				}
 
@@ -503,11 +503,11 @@ void core_updates::update_core_info(char choice, string update)
 			first.open("female_data.txt");
 			copy.open("copy_data.txt");
 
-			string first_name, last_name, weight, hfeet, hinches, ethnicity, sex, bc_pills, day_of_period, birthday;
+			string first_name, last_name, weight, hfeet, hinches, ethnicity, sex, bc_pills, day_of_period, birthday, password;
 
 			if (first.is_open())
 			{
-				while (first >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday)
+				while (first >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday >> password)
 				{
 					cout << "We have entered the update successfully!!!" << endl;
 					cout << "We have, on file, your current sexually active status as: " << sex << endl;
@@ -520,7 +520,7 @@ void core_updates::update_core_info(char choice, string update)
 				{
 					if (copy.is_open())
 					{
-						copy << first_name << " " << last_name << " " << weight << " " << hfeet << " " << hinches << " " << ethnicity << " " << update << " " << bc_pills << " " << day_of_period << " " << birthday;
+						copy << first_name << " " << last_name << " " << weight << " " << hfeet << " " << hinches << " " << ethnicity << " " << update << " " << bc_pills << " " << day_of_period << " " << birthday << " " << password;
 					}
 
 					cout << "Your information has been updated." << endl;
@@ -543,9 +543,9 @@ void core_updates::update_core_info(char choice, string update)
 
 				if (copy2.is_open())
 				{
-					while (copy2 >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday)
+					while (copy2 >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday >> password)
 					{
-						first2 << first_name << " " << last_name << " " << weight << " " << hfeet << " " << hinches << " " << ethnicity << " " << sex << " " << bc_pills << " " << day_of_period << " " << birthday;
+						first2 << first_name << " " << last_name << " " << weight << " " << hfeet << " " << hinches << " " << ethnicity << " " << sex << " " << bc_pills << " " << day_of_period << " " << birthday << " " << password;
 					}
 				}
 
@@ -562,11 +562,11 @@ void core_updates::update_core_info(char choice, string update)
 			first.open("female_data.txt");
 			copy.open("copy_data.txt");
 
-			string first_name, last_name, weight, hfeet, hinches, ethnicity, sex, bc_pills, day_of_period, birthday;
+			string first_name, last_name, weight, hfeet, hinches, ethnicity, sex, bc_pills, day_of_period, birthday, password;
 
 			if (first.is_open())
 			{
-				while (first >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday)
+				while (first >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday >> password)
 				{
 					cout << "We have entered the update successfully!!!" << endl;
 					cout << "We have, on file, your current birth control status as: " << bc_pills << endl;
@@ -579,7 +579,7 @@ void core_updates::update_core_info(char choice, string update)
 				{
 					if (copy.is_open())
 					{
-						copy << first_name << " " << last_name << " " << weight << " " << hfeet << " " << hinches << " " << ethnicity << " " << sex << " " << update << " " << day_of_period << " " << birthday;
+						copy << first_name << " " << last_name << " " << weight << " " << hfeet << " " << hinches << " " << ethnicity << " " << sex << " " << update << " " << day_of_period << " " << birthday << " " << password;
 					}
 
 					cout << "Your information has been updated." << endl;
@@ -602,9 +602,9 @@ void core_updates::update_core_info(char choice, string update)
 
 				if (copy2.is_open())
 				{
-					while (copy2 >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday)
+					while (copy2 >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday >> password)
 					{
-						first2 << first_name << " " << last_name << " " << weight << " " << hfeet << " " << hinches << " " << ethnicity << " " << sex << " " << bc_pills << " " << day_of_period << " " << birthday;
+						first2 << first_name << " " << last_name << " " << weight << " " << hfeet << " " << hinches << " " << ethnicity << " " << sex << " " << bc_pills << " " << day_of_period << " " << birthday << " " << password;
 					}
 				}
 
@@ -621,11 +621,11 @@ void core_updates::update_core_info(char choice, string update)
 			first.open("female_data.txt");
 			copy.open("copy_data.txt");
 
-			string first_name, last_name, weight, hfeet, hinches, ethnicity, sex, bc_pills, day_of_period, birthday;
+			string first_name, last_name, weight, hfeet, hinches, ethnicity, sex, bc_pills, day_of_period, birthday, password;
 
 			if (first.is_open())
 			{
-				while (first >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday)
+				while (first >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday >> password)
 				{
 					cout << "We have entered the update successfully!!!" << endl;
 					cout << "We have, on file, your current average period day as: " << day_of_period << endl;
@@ -638,7 +638,7 @@ void core_updates::update_core_info(char choice, string update)
 				{
 					if (copy.is_open())
 					{
-						copy << first_name << " " << last_name << " " << weight << " " << hfeet << " " << hinches << " " << ethnicity << " " << sex << " " << bc_pills << " " << update << " " << birthday;
+						copy << first_name << " " << last_name << " " << weight << " " << hfeet << " " << hinches << " " << ethnicity << " " << sex << " " << bc_pills << " " << update << " " << birthday << " " << password;
 					}
 
 					cout << "Your information has been updated." << endl;
@@ -661,9 +661,9 @@ void core_updates::update_core_info(char choice, string update)
 
 				if (copy2.is_open())
 				{
-					while (copy2 >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday)
+					while (copy2 >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday >> password)
 					{
-						first2 << first_name << " " << last_name << " " << weight << " " << hfeet << " " << hinches << " " << ethnicity << " " << sex << " " << bc_pills << " " << day_of_period << " " << birthday;
+						first2 << first_name << " " << last_name << " " << weight << " " << hfeet << " " << hinches << " " << ethnicity << " " << sex << " " << bc_pills << " " << day_of_period << " " << birthday << " " << password;
 					}
 				}
 
@@ -680,11 +680,11 @@ void core_updates::update_core_info(char choice, string update)
 			first.open("female_data.txt");
 			copy.open("copy_data.txt");
 
-			string first_name, last_name, weight, hfeet, hinches, ethnicity, sex, bc_pills, day_of_period, birthday;
+			string first_name, last_name, weight, hfeet, hinches, ethnicity, sex, bc_pills, day_of_period, birthday, password;
 
 			if (first.is_open())
 			{
-				while (first >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday)
+				while (first >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday >> password)
 				{
 					cout << "We have entered the update successfully!!!" << endl;
 					cout << "We have, on file, your current birthday as: " << birthday << endl;
@@ -697,7 +697,7 @@ void core_updates::update_core_info(char choice, string update)
 				{
 					if (copy.is_open())
 					{
-						copy << first_name << " " << last_name << " " << weight << " " << hfeet << " " << hinches << " " << ethnicity << " " << sex << " " << bc_pills << " " << day_of_period << " " << update;
+						copy << first_name << " " << last_name << " " << weight << " " << hfeet << " " << hinches << " " << ethnicity << " " << sex << " " << bc_pills << " " << day_of_period << " " << update << " " << password;
 					}
 
 					cout << "Your information has been updated." << endl;
@@ -720,9 +720,9 @@ void core_updates::update_core_info(char choice, string update)
 
 				if (copy2.is_open())
 				{
-					while (copy2 >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday)
+					while (copy2 >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday >> password)
 					{
-						first2 << first_name << " " << last_name << " " << weight << " " << hfeet << " " << hinches << " " << ethnicity << " " << sex << " " << bc_pills << " " << day_of_period << " " << birthday;
+						first2 << first_name << " " << last_name << " " << weight << " " << hfeet << " " << hinches << " " << ethnicity << " " << sex << " " << bc_pills << " " << day_of_period << " " << birthday << " " << password;
 					}
 				}
 
@@ -744,6 +744,12 @@ void core_updates::update_core_info(char choice, string update)
 		{
 			cout << "Error!!!" << endl;
 		}
+	}
+
+	if (y_or_n == "Yes")
+	{
+		system("CLS");
+		cout << "\n\n\n\n\n\t\t\t\tChanges will take effect next time you open the program." << endl << endl << endl << endl << endl << endl;
 	}
 
 	system("pause");

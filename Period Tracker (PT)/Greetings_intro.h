@@ -21,6 +21,7 @@ private:
 	string bc;
 	string period;
 	string birthday;
+	string password;
 	int val;
 public:
 	Greetings_intro();	// Constructor
@@ -36,6 +37,7 @@ public:
 	void setBirthControl(string);
 	void setPeriodDay(string);
 	void setBirthday(string);
+	void setPassword(string);
 	void show_months();
 	string getFirstName();
 	string getLastName();
@@ -47,6 +49,7 @@ public:
 	string getBirthControl();
 	string getPeriodDay();
 	string getBirthday();
+	string getPassword();
 	int random_number(int);
 	
 	// Destructor

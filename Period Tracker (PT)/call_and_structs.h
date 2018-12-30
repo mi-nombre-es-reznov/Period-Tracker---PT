@@ -22,5 +22,6 @@ public:
 	Birthday get_Birthday();
 	void Months();
 	string get_question(char);
+	int getPassword(string);
 };
 #endif

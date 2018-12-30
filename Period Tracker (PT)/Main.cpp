@@ -128,7 +128,7 @@ string check_name()
 void get_base_data()
 {
 	string in_fn, in_ln, in_weight, in_hf, in_hi, in_eth, in_sex, in_bc, in_dop, in_birth;
-	int pre_weight;
+	int pre_weight, pre_hf, pre_hi;
 
 	// Get info about user to have in name database
 	cout << "What is your first name: ";
@@ -142,13 +142,15 @@ void get_base_data()
 	//cout << "\nHow much do you weigh in pounds (lbs): ";
 	cin.ignore();
 	cout << "\nHow much do you weigh? ";
-	cin >> pre_weight;
-	in_weight = bounds.weight_checker(pre_weight);
+	in_weight = bounds.weight_checker();
 	female_obj.setWeight(in_weight);
 	//cout << "\nWhat is your height (feet)";
+	cin.ignore();
+	cout << "\nHow many feet are you tall? (don't include inches): ";
 	in_hf = bounds.get_height_feet();
 	female_obj.setHeightFeet(in_hf);
 	//cout << "\nWhat is your height (inches): ";
+	cout << "\nHow many inches are you tall? (don't include inches): ";
 	in_hi = bounds.get_height_inches();
 	female_obj.setHeightInches(in_hi);
 	cout << "\nWhat is your ethnicity: ";
@@ -234,6 +236,13 @@ void Main_Menu()
 			cin.ignore();
 			name = calls.get_question(update_choice);
 			name_alt = bounds.single_word(name);
+
+			if (name_alt == "birthday_loop")
+			{
+				birth = calls.get_Birthday();
+				name_alt = birth.Month + "_" + to_string(birth.Day) + "_" + to_string(birth.Year);
+			}
+
 			update.update_core_info(update_choice, name_alt);
 			break;
 		}
@@ -254,6 +263,7 @@ void Main_Menu()
 		}
 		case 'c':
 		{
+
 			system("CLS");
 			cout << "\t\t\t\t\t\t\tUpdate Current Day Entry" << endl << endl << endl;
 			update.name_and_date(female_obj.getFirstName(), female_obj.getLastName());
@@ -282,4 +292,7 @@ void Main_Menu()
 			break;
 		}
 	}
+
+	system("CLS");
+	Main_Menu();
 }

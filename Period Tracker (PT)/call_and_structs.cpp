@@ -189,7 +189,7 @@ void call_and_structs::Months()
 
 string call_and_structs::get_question(char choice)
 {
-	string name, rep_weight;
+	string name, rep_weight, rep_hf, rep_hi, rep_ethnicity, rep_sex, rep_bc, rep_avg_dop, rep_birthday;
 	int int_weight;
 
 	switch (choice)
@@ -213,9 +213,64 @@ string call_and_structs::get_question(char choice)
 		case 'c':
 		{
 			cout << "Please enter your new weight: ";
-			cin >> int_weight;
-			rep_weight = bounded.weight_checker(int_weight);
+			rep_weight = bounded.weight_checker();
 			return rep_weight;
+			break;
+		}
+		case 'd':
+		{
+			cout << "Please enter your new height (feet only): ";
+			rep_hf = bounded.get_height_feet();
+			return rep_hf;
+			break;
+		}
+		case 'e':
+		{
+			cout << "Please enter your new height (inches only): ";
+			rep_hi = bounded.get_height_inches();
+			return rep_hi;
+			break;
+		}
+		case 'f':
+		{
+			rep_ethnicity = bounded.get_ethnicity();
+			return rep_ethnicity;
+			break;
+		}
+		case 'g':
+		{
+			cout << "Are you sexually active? ";
+			rep_sex = bounded.get_yes_no();
+			return rep_sex;
+			break;
+		}
+		case 'h':
+		{
+			cout << "Are you on birth control? ";
+			rep_bc = bounded.get_yes_no();
+			return rep_bc;
+			break;
+		}
+		case 'i':
+		{
+			cout << "Please enter a new average day for your period: ";
+			rep_avg_dop = bounded.day_checker();
+			return rep_avg_dop;
+			break;
+		}
+		case 'j':
+		{
+			return "birthday_loop";
+			break;
+		}
+		case 'k':
+		{
+			return "Exit";
+			break;
+		}
+		default:
+		{
+			return "Error!";
 			break;
 		}
 	}

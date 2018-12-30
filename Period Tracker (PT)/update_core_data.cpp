@@ -130,7 +130,7 @@ char core_updates::update_core_info_menu()
 		cin >> option;
 
 		option = tolower(option);
-	} while (option != 'a' && option != 'b' && option != 'c' && option != 'd' && option != 'e' && option != 'f' && option != 'g' && option != 'h' && option != 'i' && option != 'j');
+	} while (option != 'a' && option != 'b' && option != 'c' && option != 'd' && option != 'e' && option != 'f' && option != 'g' && option != 'h' && option != 'i' && option != 'j' && option != 'k');
 
 	return option;
 }
@@ -319,7 +319,434 @@ void core_updates::update_core_info(char choice, string update)
 
 			break;
 		}
+		case 'd':
+		{
+			ifstream first;
+			ofstream copy;
+			first.open("female_data.txt");
+			copy.open("copy_data.txt");
+
+			string first_name, last_name, weight, hfeet, hinches, ethnicity, sex, bc_pills, day_of_period, birthday;
+
+			if (first.is_open())
+			{
+				while (first >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday)
+				{
+					cout << "We have entered the update successfully!!!" << endl;
+					cout << "We have, on file, your current height (feet only) as: " << hfeet << endl;
+					cout << "You have requested to change your height (feet only) to: " << update << endl;
+					cout << "Is this correct? (y or n): ";
+					y_or_n = bounds.get_yes_no();
+				}
+
+				if (y_or_n == "Yes")
+				{
+					if (copy.is_open())
+					{
+						copy << first_name << " " << last_name << " " << weight << " " << update << " " << hinches << " " << ethnicity << " " << sex << " " << bc_pills << " " << day_of_period << " " << birthday;
+					}
+
+					cout << "Your information has been updated." << endl;
+				}
+				else
+				{
+					cout << "Understood. We have not make any changes." << endl;
+				}
+			}
+
+			first.close();
+			copy.close();
+
+			if (y_or_n == "Yes")
+			{
+				ofstream first2;
+				ifstream copy2;
+				first2.open("female_data.txt");
+				copy2.open("copy_data.txt");
+
+				if (copy2.is_open())
+				{
+					while (copy2 >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday)
+					{
+						first2 << first_name << " " << last_name << " " << weight << " " << hfeet << " " << hinches << " " << ethnicity << " " << sex << " " << bc_pills << " " << day_of_period << " " << birthday;
+					}
+				}
+
+				first2.close();
+				copy2.close();
+			}
+
+			break;
+		}
+		case 'e':
+		{
+			ifstream first;
+			ofstream copy;
+			first.open("female_data.txt");
+			copy.open("copy_data.txt");
+
+			string first_name, last_name, weight, hfeet, hinches, ethnicity, sex, bc_pills, day_of_period, birthday;
+
+			if (first.is_open())
+			{
+				while (first >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday)
+				{
+					cout << "We have entered the update successfully!!!" << endl;
+					cout << "We have, on file, your current height (inches only) as: " << hinches << endl;
+					cout << "You have requested to change your height (inches only) to: " << update << endl;
+					cout << "Is this correct? (y or n): ";
+					y_or_n = bounds.get_yes_no();
+				}
+
+				if (y_or_n == "Yes")
+				{
+					if (copy.is_open())
+					{
+						copy << first_name << " " << last_name << " " << weight << " " << hfeet << " " << update << " " << ethnicity << " " << sex << " " << bc_pills << " " << day_of_period << " " << birthday;
+					}
+
+					cout << "Your information has been updated." << endl;
+				}
+				else
+				{
+					cout << "Understood. We have not make any changes." << endl;
+				}
+			}
+
+			first.close();
+			copy.close();
+
+			if (y_or_n == "Yes")
+			{
+				ofstream first2;
+				ifstream copy2;
+				first2.open("female_data.txt");
+				copy2.open("copy_data.txt");
+
+				if (copy2.is_open())
+				{
+					while (copy2 >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday)
+					{
+						first2 << first_name << " " << last_name << " " << weight << " " << hfeet << " " << hinches << " " << ethnicity << " " << sex << " " << bc_pills << " " << day_of_period << " " << birthday;
+					}
+				}
+
+				first2.close();
+				copy2.close();
+			}
+
+			break;
+		}
+		case 'f':
+		{
+			ifstream first;
+			ofstream copy;
+			first.open("female_data.txt");
+			copy.open("copy_data.txt");
+
+			string first_name, last_name, weight, hfeet, hinches, ethnicity, sex, bc_pills, day_of_period, birthday;
+
+			if (first.is_open())
+			{
+				while (first >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday)
+				{
+					cout << "We have entered the update successfully!!!" << endl;
+					cout << "We have, on file, your current ethnicity as: " << ethnicity << endl;
+					cout << "You have requested to change your ethnicity to: " << update << endl;
+					cout << "Is this correct? (y or n): ";
+					y_or_n = bounds.get_yes_no();
+				}
+
+				if (y_or_n == "Yes")
+				{
+					if (copy.is_open())
+					{
+						copy << first_name << " " << last_name << " " << weight << " " << hfeet << " " << hinches << " " << update << " " << sex << " " << bc_pills << " " << day_of_period << " " << birthday;
+					}
+
+					cout << "Your information has been updated." << endl;
+				}
+				else
+				{
+					cout << "Understood. We have not make any changes." << endl;
+				}
+			}
+
+			first.close();
+			copy.close();
+
+			if (y_or_n == "Yes")
+			{
+				ofstream first2;
+				ifstream copy2;
+				first2.open("female_data.txt");
+				copy2.open("copy_data.txt");
+
+				if (copy2.is_open())
+				{
+					while (copy2 >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday)
+					{
+						first2 << first_name << " " << last_name << " " << weight << " " << hfeet << " " << hinches << " " << ethnicity << " " << sex << " " << bc_pills << " " << day_of_period << " " << birthday;
+					}
+				}
+
+				first2.close();
+				copy2.close();
+			}
+
+			break;
+		}
+		case 'g':
+		{
+			ifstream first;
+			ofstream copy;
+			first.open("female_data.txt");
+			copy.open("copy_data.txt");
+
+			string first_name, last_name, weight, hfeet, hinches, ethnicity, sex, bc_pills, day_of_period, birthday;
+
+			if (first.is_open())
+			{
+				while (first >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday)
+				{
+					cout << "We have entered the update successfully!!!" << endl;
+					cout << "We have, on file, your current sexually active status as: " << sex << endl;
+					cout << "You have requested to change your sexually active status to: " << update << endl;
+					cout << "Is this correct? (y or n): ";
+					y_or_n = bounds.get_yes_no();
+				}
+
+				if (y_or_n == "Yes")
+				{
+					if (copy.is_open())
+					{
+						copy << first_name << " " << last_name << " " << weight << " " << hfeet << " " << hinches << " " << ethnicity << " " << update << " " << bc_pills << " " << day_of_period << " " << birthday;
+					}
+
+					cout << "Your information has been updated." << endl;
+				}
+				else
+				{
+					cout << "Understood. We have not make any changes." << endl;
+				}
+			}
+
+			first.close();
+			copy.close();
+
+			if (y_or_n == "Yes")
+			{
+				ofstream first2;
+				ifstream copy2;
+				first2.open("female_data.txt");
+				copy2.open("copy_data.txt");
+
+				if (copy2.is_open())
+				{
+					while (copy2 >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday)
+					{
+						first2 << first_name << " " << last_name << " " << weight << " " << hfeet << " " << hinches << " " << ethnicity << " " << sex << " " << bc_pills << " " << day_of_period << " " << birthday;
+					}
+				}
+
+				first2.close();
+				copy2.close();
+			}
+
+			break;
+		}
+		case 'h':
+		{
+			ifstream first;
+			ofstream copy;
+			first.open("female_data.txt");
+			copy.open("copy_data.txt");
+
+			string first_name, last_name, weight, hfeet, hinches, ethnicity, sex, bc_pills, day_of_period, birthday;
+
+			if (first.is_open())
+			{
+				while (first >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday)
+				{
+					cout << "We have entered the update successfully!!!" << endl;
+					cout << "We have, on file, your current birth control status as: " << bc_pills << endl;
+					cout << "You have requested to change your birth control status to: " << update << endl;
+					cout << "Is this correct? (y or n): ";
+					y_or_n = bounds.get_yes_no();
+				}
+
+				if (y_or_n == "Yes")
+				{
+					if (copy.is_open())
+					{
+						copy << first_name << " " << last_name << " " << weight << " " << hfeet << " " << hinches << " " << ethnicity << " " << sex << " " << update << " " << day_of_period << " " << birthday;
+					}
+
+					cout << "Your information has been updated." << endl;
+				}
+				else
+				{
+					cout << "Understood. We have not make any changes." << endl;
+				}
+			}
+
+			first.close();
+			copy.close();
+
+			if (y_or_n == "Yes")
+			{
+				ofstream first2;
+				ifstream copy2;
+				first2.open("female_data.txt");
+				copy2.open("copy_data.txt");
+
+				if (copy2.is_open())
+				{
+					while (copy2 >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday)
+					{
+						first2 << first_name << " " << last_name << " " << weight << " " << hfeet << " " << hinches << " " << ethnicity << " " << sex << " " << bc_pills << " " << day_of_period << " " << birthday;
+					}
+				}
+
+				first2.close();
+				copy2.close();
+			}
+
+			break;
+		}
+		case 'i':
+		{
+			ifstream first;
+			ofstream copy;
+			first.open("female_data.txt");
+			copy.open("copy_data.txt");
+
+			string first_name, last_name, weight, hfeet, hinches, ethnicity, sex, bc_pills, day_of_period, birthday;
+
+			if (first.is_open())
+			{
+				while (first >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday)
+				{
+					cout << "We have entered the update successfully!!!" << endl;
+					cout << "We have, on file, your current average period day as: " << day_of_period << endl;
+					cout << "You have requested to change your average period day to: " << update << endl;
+					cout << "Is this correct? (y or n): ";
+					y_or_n = bounds.get_yes_no();
+				}
+
+				if (y_or_n == "Yes")
+				{
+					if (copy.is_open())
+					{
+						copy << first_name << " " << last_name << " " << weight << " " << hfeet << " " << hinches << " " << ethnicity << " " << sex << " " << bc_pills << " " << update << " " << birthday;
+					}
+
+					cout << "Your information has been updated." << endl;
+				}
+				else
+				{
+					cout << "Understood. We have not make any changes." << endl;
+				}
+			}
+
+			first.close();
+			copy.close();
+
+			if (y_or_n == "Yes")
+			{
+				ofstream first2;
+				ifstream copy2;
+				first2.open("female_data.txt");
+				copy2.open("copy_data.txt");
+
+				if (copy2.is_open())
+				{
+					while (copy2 >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday)
+					{
+						first2 << first_name << " " << last_name << " " << weight << " " << hfeet << " " << hinches << " " << ethnicity << " " << sex << " " << bc_pills << " " << day_of_period << " " << birthday;
+					}
+				}
+
+				first2.close();
+				copy2.close();
+			}
+
+			break;
+		}
+		case 'j':
+		{
+			ifstream first;
+			ofstream copy;
+			first.open("female_data.txt");
+			copy.open("copy_data.txt");
+
+			string first_name, last_name, weight, hfeet, hinches, ethnicity, sex, bc_pills, day_of_period, birthday;
+
+			if (first.is_open())
+			{
+				while (first >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday)
+				{
+					cout << "We have entered the update successfully!!!" << endl;
+					cout << "We have, on file, your current birthday as: " << birthday << endl;
+					cout << "You have requested to change your birthday to: " << update << endl;
+					cout << "Is this correct? (y or n): ";
+					y_or_n = bounds.get_yes_no();
+				}
+
+				if (y_or_n == "Yes")
+				{
+					if (copy.is_open())
+					{
+						copy << first_name << " " << last_name << " " << weight << " " << hfeet << " " << hinches << " " << ethnicity << " " << sex << " " << bc_pills << " " << day_of_period << " " << update;
+					}
+
+					cout << "Your information has been updated." << endl;
+				}
+				else
+				{
+					cout << "Understood. We have not make any changes." << endl;
+				}
+			}
+
+			first.close();
+			copy.close();
+
+			if (y_or_n == "Yes")
+			{
+				ofstream first2;
+				ifstream copy2;
+				first2.open("female_data.txt");
+				copy2.open("copy_data.txt");
+
+				if (copy2.is_open())
+				{
+					while (copy2 >> first_name >> last_name >> weight >> hfeet >> hinches >> ethnicity >> sex >> bc_pills >> day_of_period >> birthday)
+					{
+						first2 << first_name << " " << last_name << " " << weight << " " << hfeet << " " << hinches << " " << ethnicity << " " << sex << " " << bc_pills << " " << day_of_period << " " << birthday;
+					}
+				}
+
+				first2.close();
+				copy2.close();
+			}
+
+			break;
+		}
+		case 'k':
+		{
+			system("CLS");
+			cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\nThank you for using NCompEng Technologies. Please visit again soon!" << endl;
+			system("pause");
+			exit(0);
+			break;
+		}
+		default:
+		{
+			cout << "Error!!!" << endl;
+		}
 	}
+
+	system("pause");
 }
 
 void core_updates::get_time()

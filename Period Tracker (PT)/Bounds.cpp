@@ -14,8 +14,13 @@ string Boundries::day_checker()
 	// Loop to run through if user were to give invalid choice for day born on.
 	do
 	{
-		cout << "\nPlease enter a day: ";
+		//cout << "\nPlease enter a day: ";
 		cin >> i_day;
+
+		if (i_day < 1 || i_day > 31)
+		{
+			cout << "Invalid option! Please enter a day between 0 and 32: ";
+		}
 
 		numFail = cin.fail();
 		cin.clear();
@@ -81,9 +86,11 @@ string Boundries::get_height_feet()
 	// Loop to run through if user were to give invalid choice for day born on.
 	do
 	{
-		cin.ignore();
-		cout << "\nHow many feet are you tall? (don't include inches): ";
 		cin >> feet;
+		if (feet < 1 || feet > 7)
+		{
+			cout << "Invalid option! Please choose an option between 0 -> 7: ";
+		}
 
 		numFail = cin.fail();
 		cin.clear();
@@ -109,8 +116,11 @@ string Boundries::get_height_inches()
 	// Loop to run through if user were to give invalid choice for day born on.
 	do
 	{
-		cout << "\nHow many inches are you tall? (don't include inches): ";
 		cin >> inches;
+		if (inches < 1 || inches > 11)
+		{
+			cout << "Invalid option! Please choose an option between 0 -> 12: ";
+		}
 
 		numFail = cin.fail();
 		cin.clear();
@@ -127,14 +137,21 @@ string Boundries::get_height_inches()
 	return s_inches;
 }
 
-string Boundries::weight_checker(int weight)
+string Boundries::weight_checker()
 {
+	int weight;
 	string s_weight;
 	bool numFail;
 
 	// Loop to run through if user were to give invalid choice for day born on.
 	do
 	{
+		cin >> weight;
+		if (weight < 40 || weight > 1000)
+		{
+			cout << "Invalid option! Please choose an option between 40 -> 1000: ";
+		}
+
 		numFail = cin.fail();
 		cin.clear();
 		cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -143,7 +160,7 @@ string Boundries::weight_checker(int weight)
 		{
 			cout << "You entered an invalid option, please enter a valid number!" << endl;
 		}
-	} while ((numFail == true) || (weight < 1) || (weight > 1000));
+	} while ((numFail == true) || (weight < 40) || (weight > 1000));
 
 	s_weight = to_string(weight);
 

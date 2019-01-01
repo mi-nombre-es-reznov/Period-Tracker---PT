@@ -117,6 +117,7 @@
   <ItemGroup>
     <ClCompile Include="Bounds.cpp" />
     <ClCompile Include="call_and_structs.cpp" />
+    <ClCompile Include="Data_Entry.cpp" />
     <ClCompile Include="Greetings_intro.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="update_core_data.cpp" />
@@ -124,6 +125,7 @@
   <ItemGroup>
     <ClInclude Include="Bounds.h" />
     <ClInclude Include="call_and_structs.h" />
+    <ClInclude Include="Data_Entry.h" />
     <ClInclude Include="Greetings_intro.h" />
     <ClInclude Include="update_core_data.h" />
   </ItemGroup>

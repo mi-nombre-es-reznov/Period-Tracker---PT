@@ -5,6 +5,7 @@
 #include "Bounds.h"	// For Boundries class
 #include "call_and_structs.h"	// For call functions and structs class
 #include "update_core_data.h" // For update entries in update_core_data class
+#include "Data_Entry.h"	// Used for inputing period data in files from data entry class
 using namespace std;	// Used to declare namespace as standard
 
 // Global variables
@@ -13,12 +14,13 @@ Boundries bounds;	// Object of class bounds
 call_and_structs calls;	// Object of class call_and_structs
 Birthday birth;	// Object of Birthday struct
 core_updates update;	// Object of update core data class
-void Main_Menu();
+data_entry dataEntry;		// Object of data entry class
 
 // Call functions
 string check_name();
 void get_base_data();
 void getfirstName();
+void Main_Menu();
 
 int main()
 {
@@ -59,12 +61,16 @@ int main()
 	} while (password != 1);
 
 	// Display message if user name is already in system and female is accessing
-	system("CLS");
+	/*system("CLS");
 	first = bounds.unbind_words(female_obj.getFirstName());
-	cout << greeting_starter[loc_gs] << first << greeting_ending[loc_ge] << endl << endl;
+	cout << greeting_starter[loc_gs] << first << greeting_ending[loc_ge] << endl << endl;*/
 
 	// Main Menu
 	Main_Menu();
+
+	// Exit with choice 'k'
+	system("CLS");
+	cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\nThank you for using NCompEng Technologies. Please visit again soon!" << endl;
 
 	// To allow for user visability
 	system("pause");
@@ -225,7 +231,7 @@ void getfirstName()
 void Main_Menu()
 {
 	char choice, update_choice;
-	string first, last, name, name_alt;
+	string first, last, name, name_alt, period, saved_time, saved_date;
 
 	do
 	{
@@ -269,12 +275,36 @@ void Main_Menu()
 		case 'b':
 		{
 			system("CLS");
-			cout << "\t\t\t\t\t\t\tAdd new Entry" << endl << endl << endl;
+			cout << "\t\t\t\t\t       Add new Entry" << endl << endl << endl;
 			first = bounds.unbind_words(female_obj.getFirstName());
 			last = bounds.unbind_words(female_obj.getLastName());
 			update.name_and_date(first, last);
-			update_choice = update.update_core_info_menu();
-			cin.ignore();
+			saved_time = dataEntry.save_time();
+			saved_date = dataEntry.save_date();
+			//system("pause");
+			period = dataEntry.ask_period();
+			dataEntry.set_period(period);
+			cout << endl << endl;
+			if (period == "Yes")
+			{
+				dataEntry.started_period(female_obj.getFirstName(), saved_time, saved_date);
+			}
+			else if (period == "No")
+			{
+				dataEntry.not_on_period(female_obj.getFirstName(), saved_time, saved_date);
+			}
+			else
+			{
+				system("CLS");
+				cout << "An error has occurred. Please restart the program and try again!" << endl;
+				system("pause");
+			}
+			//string test = dataEntry.get_period();
+			//cout << "Period status: " << test;
+			//cout << "\nTime saved: " << saved_time;
+			//system("pause");
+			//update_choice = update.update_core_info_menu();
+			//cin.ignore();
 			//name = calls.get_question(update_choice);
 			//name_alt = bounds.single_word(name);
 			//update.update_core_info(update_choice, name_alt);

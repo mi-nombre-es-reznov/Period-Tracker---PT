@@ -167,7 +167,7 @@ void get_base_data()
 	in_hf = bounds.get_height_feet();
 	female_obj.setHeightFeet(in_hf);
 	//cout << "\nWhat is your height (inches): ";
-	cout << "\nHow many inches are you tall? (don't include inches): ";
+	cout << "\nHow many inches are you tall? (don't include feet): ";
 	in_hi = bounds.get_height_inches();
 	female_obj.setHeightInches(in_hi);
 	cout << "\nWhat is your ethnicity: ";

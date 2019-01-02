@@ -117,9 +117,9 @@ string Boundries::get_height_inches()
 	do
 	{
 		cin >> inches;
-		if (inches < 1 || inches > 11)
+		if (inches < 0 || inches > 11)
 		{
-			cout << "Invalid option! Please choose an option between 0 -> 12: ";
+			cout << "Invalid option! Please choose an option between 0 (inclusive) -> 12: ";
 		}
 
 		numFail = cin.fail();
@@ -130,7 +130,7 @@ string Boundries::get_height_inches()
 		{
 			cout << "You entered an invalid option, please enter a valid number!" << endl;
 		}
-	} while ((numFail == true) || (inches < 1) || (inches > 11));
+	} while ((numFail == true) || (inches < 0) || (inches > 11));
 
 	s_inches = to_string(inches);
 

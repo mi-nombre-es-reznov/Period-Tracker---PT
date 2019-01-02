@@ -20,7 +20,7 @@ string data_entry::ask_period()
 {
 	string period;
 
-	cout << "Are you on your period today? ";
+	cout << endl << endl << endl << "Are you on your period today? ";
 	period = borders.get_yes_no();
 	return period;
 }
@@ -126,6 +126,7 @@ void data_entry::started_period(string name, string time, string date)
 	if (data.is_open())
 	{
 		period_info = get_period_data();
+		system("CLS");
 		meds = on_Meds();
 		cin.ignore();
 		notes = get_notes();
@@ -158,6 +159,7 @@ void data_entry::not_on_period(string name, string time, string date)
 
 	if (data.is_open())
 	{
+		system("CLS");
 		meds = on_Meds();
 		cin.ignore();
 		notes = get_notes();
@@ -283,7 +285,7 @@ PeriodData data_entry::get_period_data()
 	//PeriodData period_stuff;
 	string cramps, cramps_pain, breasts, breasts_pain, c_pain, b_pain, pt, smelly_vag, blood;
 	system("CLS");
-	cout << "Do you have cramps?" << endl << endl;
+	cout << "Have you had cramps recently?" << endl << endl;
 	cramps = borders.get_yes_no();
 
 	if (cramps == "Yes")
@@ -306,7 +308,8 @@ PeriodData data_entry::get_period_data()
 		cramps_pain = "null";
 	}
 
-	cout << endl << "Do you have breast pain?" << endl << endl;
+	system("CLS");
+	cout << "Have you had breast pain recently?" << endl << endl;
 	breasts = borders.get_yes_no();
 
 	if (breasts == "Yes")
@@ -329,12 +332,15 @@ PeriodData data_entry::get_period_data()
 		breasts_pain = "None";
 	}
 
+	system("CLS");
 	cout << "Are you using a pad or tampon today?" << endl;
 	pt = borders.get_yes_no();
 
-	cout << endl << "Is there a foul smell coming from your vagina?" << endl;
+	system("CLS");
+	cout << "Is there a foul smell coming from your vagina?" << endl;
 	smelly_vag = borders.get_yes_no();
 
+	system("CLS");
 	blood = get_blood_loss();
 
 	return PeriodData{ cramps, cramps_pain, breasts, breasts_pain, pt, smelly_vag, blood };

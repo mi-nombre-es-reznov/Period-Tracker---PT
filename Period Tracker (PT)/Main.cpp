@@ -232,6 +232,7 @@ void Main_Menu()
 {
 	char choice, update_choice;
 	string first, last, name, name_alt, period, saved_time, saved_date;
+	int count = 0;
 
 	do
 	{
@@ -274,6 +275,10 @@ void Main_Menu()
 		}
 		case 'b':
 		{
+			string meds, notes, curr_date, curr_time, cramps, cramps_pain, breast, breast_pain, pads, vagina, blood, update_instead;
+			ifstream check_date;
+			check_date.open(female_obj.getFirstName() + "_DataEntry.txt");
+
 			system("CLS");
 			cout << "\t\t\t\t\t       Add new Entry" << endl << endl << endl;
 			first = bounds.unbind_words(female_obj.getFirstName());
@@ -281,43 +286,94 @@ void Main_Menu()
 			update.name_and_date(first, last);
 			saved_time = dataEntry.save_time();
 			saved_date = dataEntry.save_date();
-			//system("pause");
-			period = dataEntry.ask_period();
-			dataEntry.set_period(period);
-			cout << endl << endl;
-			if (period == "Yes")
+
+			if (check_date.is_open())
 			{
-				dataEntry.started_period(female_obj.getFirstName(), saved_time, saved_date);
-			}
-			else if (period == "No")
-			{
-				dataEntry.not_on_period(female_obj.getFirstName(), saved_time, saved_date);
+				while (check_date >> curr_date >> curr_time >> cramps >> cramps_pain >> breast >> breast_pain >> meds >> pads >> vagina >> blood >> notes)
+				{
+					//cout << curr_date << " " << saved_date << endl;
+
+					//cout << curr_date << endl;
+					if (curr_date == saved_date)
+					{
+						//cout << "We have no conflict of dates." << endl;
+						count += 1;
+						//check_date.close();
+					}
+				}
 			}
 			else
 			{
-				system("CLS");
-				cout << "An error has occurred. Please restart the program and try again!" << endl;
+				cout << "File failed to open!!" << endl;
 				system("pause");
 			}
-			//string test = dataEntry.get_period();
-			//cout << "Period status: " << test;
-			//cout << "\nTime saved: " << saved_time;
-			//system("pause");
-			//update_choice = update.update_core_info_menu();
-			//cin.ignore();
-			//name = calls.get_question(update_choice);
-			//name_alt = bounds.single_word(name);
-			//update.update_core_info(update_choice, name_alt);
-			//add_entry();
+
+			check_date.close();
+
+			if (count > 0)
+			{
+				//cout << "Conflict of dates." << endl;
+				//cout << "Reroute to question about updating" << endl;
+
+				cout << "\n\n\nData has been found already for today's date. Would you like to update the data instead? ";
+				update_instead = bounds.get_yes_no();
+				if (update_instead == "Yes")
+				{
+					system("CLS");
+					cout << "\t\t\t\t\tUpdate Current Day Entry" << endl << endl << endl;
+					first = bounds.unbind_words(female_obj.getFirstName());
+					last = bounds.unbind_words(female_obj.getLastName());
+					update.name_and_date(first, last);
+					saved_time = dataEntry.save_time();
+					saved_date = dataEntry.save_date();			//update_curr_entry();
+					dataEntry.find_curr_day_entry(saved_date, saved_time, first);
+					system("pause");
+				}
+				else
+				{
+					cout << endl << endl;
+					cout << "Understood. You will be rerouted back to the Main Menu." << endl;
+					system("pause");
+				}
+				//system("pause");
+			}
+			else
+			{
+				//cout << "Test passed!" << endl << endl;
+				//cout << "count: " << count << endl;
+
+				period = dataEntry.ask_period();
+				dataEntry.set_period(period);
+				cout << endl << endl;
+				if (period == "Yes")
+				{
+					dataEntry.started_period(female_obj.getFirstName(), saved_time, saved_date);
+				}
+				else if (period == "No")
+				{
+					dataEntry.not_on_period(female_obj.getFirstName(), saved_time, saved_date);
+				}
+				else
+				{
+					system("CLS");
+					cout << "An error has occurred. Please restart the program and try again!" << endl;
+					system("pause");
+				}
+			}
+
 			break;
 		}
 		case 'c':
 		{
-
 			system("CLS");
-			cout << "\t\t\t\t\t\t\tUpdate Current Day Entry" << endl << endl << endl;
-			update.name_and_date(female_obj.getFirstName(), female_obj.getLastName());
-			//update_curr_entry();
+			cout << "\t\t\t\t\tUpdate Current Day Entry" << endl << endl << endl;
+			first = bounds.unbind_words(female_obj.getFirstName());
+			last = bounds.unbind_words(female_obj.getLastName());
+			update.name_and_date(first, last);
+			saved_time = dataEntry.save_time();
+			saved_date = dataEntry.save_date();
+			dataEntry.find_curr_day_entry(saved_date, saved_time, first);
+			system("pause");
 			break;
 		}
 		case 'd':

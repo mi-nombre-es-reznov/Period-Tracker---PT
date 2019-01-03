@@ -36,9 +36,19 @@ public:
 	void not_on_period(string, string, string);
 	string save_date();
 	string on_Meds();
+	string on_PadsTampons();
+	string vagina_odor();
 	string get_notes();
 	PeriodData get_period_data();
 	string get_dec_scale();
 	string get_blood_loss();
+	void find_curr_day_entry(string, string, string);
+	void update_cramp(string, string, string);
+	void update_breast(string, string, string);
+	void update_meds(string, string, string, string);
+	void update_pads_tampons(string, string, string, string);
+	void update_foul_smell(string, string, string, string);
+	void update_blood_loss(string, string, string, string);
+	void update_notes(string, string, string, string);
 };
 #endif
